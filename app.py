@@ -16,7 +16,7 @@ PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')
 
 # Inisialisasi Pinecone SDK v3
 pc = Pinecone(api_key=PINECONE_API_KEY)
-index = pc.Index("medical-chatbot")  # pastikan index ini sudah dibuat di Pinecone dashboard
+index = pc.Index("medical-chatbot")  
 
 embeddings = download_hugging_face_embeddings()
 

@@ -34,10 +34,12 @@ PROMPT = PromptTemplate(template=prompt_template, input_variables=["context", "q
 chain_type_kwargs = {"prompt": PROMPT}
 
 llm = CTransformers(
-    model="model/llama-2-7b-chat.ggmlv3.q4_0.bin",
+    model="./model/llama-2-7b-chat.ggmlv3.q4_0.bin",
     model_type="llama",
-    config={'max_new_tokens': 512, 'temperature': 0.8}
+    config={'max_new_tokens': 512, 'temperature': 0.8},
+    local=True  # penting biar gak coba download dari HF
 )
+
 
 # Buat chain QA
 qa = RetrievalQA.from_chain_type(

@@ -34,10 +34,11 @@ PROMPT = PromptTemplate(template=prompt_template, input_variables=["context", "q
 chain_type_kwargs = {"prompt": PROMPT}
 
 llm = CTransformers(
-    model="model/llama-2-7b-chat.ggmlv3.q4_0.bin",
+    model="YudhaGhilang/model",  # repo HF kamu
     model_type="llama",
     config={'max_new_tokens': 512, 'temperature': 0.8},
-    local=True  # penting biar gak coba download dari HF
+    local=False,  # tetap False biar download otomatis
+    use_auth_token=os.getenv("HF_TOKEN")
 )
 
 
